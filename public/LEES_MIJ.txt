@@ -1,0 +1,13 @@
+ZET HIER JE AFBEELDINGEN:
+
+afb1.jpg  →  Basic pakket kaart (auto interieur, dashboard, stoelen)
+afb2.jpg  →  Diepte pakket kaart (reiniging, vlekverwijdering)
+afb3.jpg  →  Full pakket kaart (leder, showroom resultaat)
+
+Tips:
+- Gebruik .jpg of .webp bestanden
+- Minimaal 800x600 pixels
+- Liggend formaat (landscape) werkt het beste
+- Houd ze onder 500KB voor snelle laadtijd
+
+Na het toevoegen: gewoon opslaan en de site herstart automatisch.
