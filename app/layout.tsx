@@ -15,25 +15,43 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "INTOR Interior Detailing | Professionele Autodetailing Eindhoven",
+  metadataBase: new URL("https://intor-detailing.vercel.app"),
+
+  title: {
+    default: "INTOR Interior Detailing | Eindhoven",
+    template: "%s | INTOR Detailing",
+  },
+
   description:
-    "Professionele interieur detailing aan huis in Eindhoven. INTOR reinigt uw auto-interieur met premium producten. Basic €60 | Diepte €120 | Full €259. Wij komen naar u toe!",
+    "Professionele interieur detailing aan huis in Eindhoven. INTOR reinigt uw auto-interieur met premium producten. Basic €60 | Diepte €120 | Full €259.",
+
   keywords: [
     "autodetailing Eindhoven",
     "interieur reiniging auto",
-    "auto schoonmaken aan huis",
     "mobiele autodetailing",
-    "interieur detailing Eindhoven",
-    "auto interieur reinigen Brabant",
+    "auto interieur reinigen",
     "INTOR detailing",
-    "professionele autodetailing",
+    "detailing aan huis",
   ],
+
   openGraph: {
     title: "INTOR Interior Detailing | Eindhoven",
     description:
-      "Showroom-resultaat bij u op locatie. Professionele interieur detailing in Eindhoven en omgeving.",
+      "Showroom-resultaat bij u op locatie. Professionele autodetailing in Eindhoven en omgeving.",
+    url: "https://intor-detailing.vercel.app",
+    siteName: "INTOR Detailing",
     type: "website",
     locale: "nl_NL",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "INTOR Interior Detailing",
+    description: "Premium mobiele autodetailing in Eindhoven",
+  },
+
+  icons: {
+    icon: "/favicon.ico",
   },
 };
 
