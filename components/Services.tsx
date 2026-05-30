@@ -83,7 +83,7 @@ export default function Services() {
         </div>
 
         {/* Cards */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24, alignItems: "stretch" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24, alignItems: "stretch", paddingTop: 28 }}>
           {services.map((s) => (
             <ServiceCard key={s.id} service={s} />
           ))}
@@ -113,9 +113,9 @@ function ServiceCard({ service: s }: { service: typeof services[0] }) {
           ? "1px solid rgba(201,168,76,0.35)"
           : "1px solid #1e1e1e",
         boxShadow: s.highlight ? "0 0 60px rgba(201,168,76,0.1)" : "none",
-        overflow: "hidden",
         transition: "transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease",
         transform: hovered ? "translateY(-6px)" : "translateY(0)",
+        marginTop: s.badge ? 20 : 0,
       }}
     >
       {/* Background image on hover */}
@@ -163,23 +163,24 @@ function ServiceCard({ service: s }: { service: typeof services[0] }) {
       {/* All content sits above image */}
       <div style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", flex: 1 }}>
 
-        {/* Badge */}
+        {/* Badge — floats above the card top edge */}
         {s.badge && (
           <div style={{
             position: "absolute",
-            top: -50,
+            top: -46,
             left: "50%",
             transform: "translateX(-50%)",
-            padding: "4px 16px",
+            padding: "5px 18px",
             borderRadius: 999,
             background: s.highlight ? "#c9a84c" : "#1a1a1a",
             color: s.highlight ? "#000" : "#c9a84c",
-            border: s.highlight ? "none" : "1px solid rgba(201,168,76,0.3)",
+            border: s.highlight ? "1px solid #e8c97a" : "1px solid rgba(201,168,76,0.3)",
             fontSize: 10,
             fontWeight: 700,
             letterSpacing: "0.15em",
             textTransform: "uppercase" as const,
             whiteSpace: "nowrap" as const,
+            boxShadow: s.highlight ? "0 0 16px rgba(201,168,76,0.4)" : "none",
           }}>
             {s.badge}
           </div>
