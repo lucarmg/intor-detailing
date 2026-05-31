@@ -55,7 +55,6 @@ export default function Footer() {
           {[
             ["#services", "Services"],
             ["#waarom", "Waarom Wij"],
-            ["#contact", "Contact"],
             [
               "https://www.instagram.com/intor_interior_detailing",
               "Instagram",
@@ -87,7 +86,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <p style={{ color: "#2a2a2a", fontSize: 11 }}>
-          © {new Date().getFullYear()} INTOR Interior Detailing
+          © {new Date().getFullYear()} lucarmg Designs
         </p>
       </div>
 
