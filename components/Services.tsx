@@ -115,7 +115,7 @@ function ServiceCard({ service: s }: { service: typeof services[0] }) {
         boxShadow: s.highlight ? "0 0 60px rgba(201,168,76,0.1)" : "none",
         transition: "transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease",
         transform: hovered ? "translateY(-6px)" : "translateY(0)",
-        marginTop: s.badge ? 20 : 0,
+        marginTop: 20,
       }}
     >
       {/* Background image on hover */}
