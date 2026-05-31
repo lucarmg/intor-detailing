@@ -44,7 +44,7 @@ export default function Footer() {
                 color: "#fff",
               }}
             >
-              INTOR Interior Detailing
+              INTØR Interior Detailing
             </p>
             <p style={{ color: "#333", fontSize: 11 }}>Eindhoven & Omgeving</p>
           </div>

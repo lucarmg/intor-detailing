@@ -16,11 +16,11 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "INTOR Interior Detailing | Autodetailing aan Huis Eindhoven",
-    template: "%s | INTOR Interior Detailing Eindhoven",
+    default: "INTØR Interior Detailing | Autodetailing aan Huis Eindhoven",
+    template: "%s | INTØR Interior Detailing Eindhoven",
   },
   description:
-    "INTOR Interior Detailing — professionele interieur reiniging aan huis in Eindhoven en omgeving. Wij komen naar u toe met premium apparatuur. Basic €60 | Dieptereiniging €120 | Full Detailing €259. Vlekverwijdering, geurverwijdering, lederreiniging.",
+    "INTØR Interior Detailing — professionele interieur reiniging aan huis in Eindhoven en omgeving. Wij komen naar u toe met premium apparatuur. Basic €60 | Dieptereiniging €120 | Full Detailing €259. Vlekverwijdering, geurverwijdering, lederreiniging.",
   keywords: [
     "autodetailing Eindhoven",
     "interieur reiniging auto Eindhoven",
@@ -33,26 +33,26 @@ export const metadata: Metadata = {
     "geurverwijdering auto Eindhoven",
     "lederreiniging auto",
     "dieptereiniging auto interieur",
-    "INTOR detailing",
+    "INTØR detailing",
     "autodetailing aan huis",
     "interieur detailing prijs",
     "auto opfrissen Eindhoven",
     "detailing service Brabant",
   ],
-  authors: [{ name: "INTOR Interior Detailing" }],
-  creator: "INTOR Interior Detailing",
+  authors: [{ name: "INTØR Interior Detailing" }],
+  creator: "INTØR Interior Detailing",
   metadataBase: new URL("https://intor-detailing.vercel.app"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "INTOR Interior Detailing | Professionele Autodetailing Eindhoven",
+    title: "INTØR Interior Detailing | Professionele Autodetailing Eindhoven",
     description:
       "Showroom-resultaat bij u op locatie. Professionele interieur detailing in Eindhoven — Basic €60, Diepte €120, Full €259. Wij komen naar u toe!",
     type: "website",
     locale: "nl_NL",
     url: "https://intor-detailing.vercel.app",
-    siteName: "INTOR Interior Detailing",
+    siteName: "INTØR Interior Detailing",
   },
   robots: {
     index: true,
@@ -80,7 +80,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              name: "INTOR Interior Detailing",
+              name: "INTØR Interior Detailing",
               description:
                 "Professionele mobiele interieur detailing aan huis in Eindhoven en omgeving.",
               url: "https://intor-detailing.vercel.app",

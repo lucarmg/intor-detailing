@@ -63,7 +63,7 @@ export default function WhyUs() {
         >
           <div>
             <p style={{ color: "#c9a84c", fontSize: 11, letterSpacing: "0.3em", textTransform: "uppercase", marginBottom: 16 }}>
-              Waarom INTOR
+              Waarom INTØR
             </p>
             <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 700, color: "#fff", lineHeight: 1.15 }}>
               Meer dan schoonmaken.{" "}
@@ -71,7 +71,7 @@ export default function WhyUs() {
             </h2>
           </div>
           <p style={{ color: "#555", fontSize: 16, lineHeight: 1.8 }}>
-            Bij INTOR Interior Detailing begrijpen wij dat uw auto meer is dan vervoer. Het is uw dagelijkse ruimte. Wij behandelen elk interieur met de aandacht en precisie die het verdient.
+            Bij INTØR Interior Detailing begrijpen wij dat uw auto meer is dan vervoer. Het is uw dagelijkse ruimte. Wij behandelen elk interieur met de aandacht en precisie die het verdient.
           </p>
         </div>
 

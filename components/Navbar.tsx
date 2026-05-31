@@ -63,7 +63,7 @@ export default function Navbar() {
               color: "#fff",
             }}
           >
-            INTOR
+            INTØR
           </span>
         </div>
 
