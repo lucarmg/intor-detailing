@@ -86,7 +86,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <p style={{ color: "#2a2a2a", fontSize: 11 }}>
-          © {new Date().getFullYear()} lucarmg Designs
+          © {new Date().getFullYear()} RMGdesign
         </p>
       </div>
 
