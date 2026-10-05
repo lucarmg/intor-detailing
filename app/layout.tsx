@@ -17,21 +17,20 @@ const dmSans = DM_Sans({
 
 // Het favicon komt automatisch uit app/icon.png en app/apple-icon.png.
 export const metadata: Metadata = {
-  title: `${SITE.name} | Professionele Autodetailing ${SITE.city}`,
-  description: `Professionele interieur detailing aan huis in ${SITE.city} en omgeving. ${SITE.shortName} reinigt uw auto-interieur met premium producten. Basic €60 | Diepte €120 | Full €259. Wij komen naar u toe!`,
+  title: `${SITE.name} | Auto Detailing ${SITE.city}`,
+  description: `${SITE.slogan} Auto detailing in ${SITE.city}: interieur reinigen, exterieur wassen, kleien, polijsten en glascoating. U vindt ons aan ${SITE.address}. Prijzen op aanvraag via WhatsApp.`,
   keywords: [
     `autodetailing ${SITE.city}`,
-    "interieur reiniging auto",
-    "auto schoonmaken aan huis",
-    "mobiele autodetailing",
-    `interieur detailing ${SITE.city}`,
-    "auto interieur reinigen Brabant",
+    `auto polijsten ${SITE.city}`,
+    `auto interieur reinigen ${SITE.city}`,
+    "auto wassen en kleien",
+    "glascoating auto",
+    "auto polijsten Brabant",
     SITE.shortName,
-    "professionele autodetailing",
   ],
   openGraph: {
-    title: `${SITE.name} | ${SITE.city}`,
-    description: `Showroom-resultaat bij u op locatie. Professionele interieur detailing in ${SITE.city} en omgeving.`,
+    title: `${SITE.name} | ${SITE.slogan}`,
+    description: `Auto detailing in ${SITE.city}: interieur, exterieur, polijsten en glascoating op ${SITE.address}.`,
     type: "website",
     locale: "nl_NL",
   },

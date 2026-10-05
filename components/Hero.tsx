@@ -1,11 +1,5 @@
 import { SITE, WA_DEFAULT } from "@/lib/site";
-import { WhatsAppIcon } from "./Icons";
-
-const stats = [
-  { num: "3", label: "Pakketten" },
-  { num: "100%", label: "Mobiel" },
-  { num: "€60", label: "Startprijs" },
-];
+import { PinIcon, WhatsAppIcon } from "./Icons";
 
 export default function Hero() {
   return (
@@ -14,18 +8,21 @@ export default function Hero() {
       <div className="hero__grid" aria-hidden="true" />
 
       <div className="hero__content">
-        <h1 className="hero__title anim-2">
-          <span>Jouw Interieur.</span>
-          <span className="text-accent-shimmer">Showroom</span>
-          <span>Resultaat.</span>
+        {/* De slogan: "That Loeks Good!" */}
+        <h1 className="hero__title anim-1">
+          <span className="hero__line">
+            That <span className="text-accent-shimmer">Loeks</span>
+          </span>
+          <span className="hero__line">Good!</span>
         </h1>
 
-        <p className="hero__sub anim-3">
-          Professionele interieur detailing aan huis in {SITE.city} en omgeving.
-          Wij komen naar u toe met premium apparatuur en producten.
+        <p className="hero__sub anim-2">
+          Auto detailing in {SITE.city}. Interieur reinigen, exterieur wassen,
+          kleien, polijsten en glascoating, allemaal op onze eigen locatie aan{" "}
+          {SITE.street}.
         </p>
 
-        <div className="hero__actions anim-4">
+        <div className="hero__actions anim-3">
           <a
             href={WA_DEFAULT}
             target="_blank"
@@ -40,13 +37,15 @@ export default function Hero() {
           </a>
         </div>
 
-        <ul className="stats anim-5">
-          {stats.map((stat) => (
-            <li key={stat.label} className="stat">
-              <p className="stat__num">{stat.num}</p>
-              <p className="stat__label">{stat.label}</p>
-            </li>
-          ))}
+        <ul className="hero__facts anim-4">
+          <li>
+            <PinIcon size={16} />
+            {SITE.address}
+          </li>
+          <li>
+            <WhatsAppIcon size={15} />
+            Prijs op aanvraag via WhatsApp
+          </li>
         </ul>
       </div>
 

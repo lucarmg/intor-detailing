@@ -2,11 +2,14 @@
 // Pas hier iets aan en het verandert overal op de site.
 
 export const SITE = {
-  name: "Loekgoodcleaning Interior Detailing",
+  name: "loekgoodcleaning",
   shortName: "loekgoodcleaning",
-  city: "Ommel",
+  slogan: "That Loeks Good!",
+  street: "Planker 8a",
+  city: "Asten",
   province: "Noord-Brabant",
-  region: "Ommel & Omgeving",
+  address: "Planker 8a, Asten",
+  mapsUrl: "https://www.google.com/maps/search/?api=1&query=Planker+8a%2C+Asten",
   phoneDisplay: "+31 6 28181039",
   whatsappNumber: "31628181039",
   email: "loekgoodcleaning@gmail.com",

@@ -25,7 +25,7 @@ export default function Footer() {
             />
             <span>
               <span className="footer__name">{SITE.name}</span>
-              <span className="footer__region">{SITE.region}</span>
+              <span className="footer__region">{SITE.address}</span>
             </span>
           </a>
 

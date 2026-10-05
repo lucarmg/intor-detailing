@@ -26,7 +26,7 @@ export default function Contact() {
             icon={<WhatsAppIcon size={22} />}
             label="WhatsApp"
             value={SITE.phoneDisplay}
-            sub="Snel een afspraak inplannen"
+            sub="Afspraak en prijs bespreken"
           />
           <ContactCard
             variant="email"
@@ -48,13 +48,19 @@ export default function Contact() {
         </div>
 
         <div className="location">
-          <p className="location__pill">
-            <PinIcon size={14} />
+          <a
+            href={SITE.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="location__pill"
+          >
+            <PinIcon size={15} />
             <span>
-              Werkgebied: {SITE.city} en omgeving,{" "}
-              <span className="nowrap">{SITE.province}</span>
+              U vindt ons aan{" "}
+              <span className="nowrap">{SITE.address}</span>
             </span>
-          </p>
+            <span className="location__route">Route plannen</span>
+          </a>
         </div>
       </div>
     </section>

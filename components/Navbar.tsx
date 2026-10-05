@@ -90,7 +90,7 @@ export default function Navbar() {
             type="button"
             className="nav__toggle"
             aria-expanded={open}
-            aria-controls="mobiel-menu"
+            aria-controls="hoofdmenu"
             aria-label={open ? "Menu sluiten" : "Menu openen"}
             onClick={() => setOpen((v) => !v)}
           >
@@ -101,7 +101,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <div id="mobiel-menu" className="nav__menu">
+      <div id="hoofdmenu" className="nav__menu">
         {NAV_LINKS.map((link) => (
           <a
             key={link.href}
@@ -123,7 +123,7 @@ export default function Navbar() {
           Direct Afspraak Maken
         </a>
         <p className="nav__menu-foot">
-          Mobiele detailing in {SITE.city} en omgeving
+          {SITE.slogan} {SITE.address}
         </p>
       </div>
     </header>

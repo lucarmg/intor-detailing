@@ -23,23 +23,6 @@ export function WhatsAppIcon({ size = 18, className }: IconProps) {
   );
 }
 
-export function ClockIcon({ size = 13, className }: IconProps) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" strokeWidth="2" className={className} aria-hidden="true" {...stroke}>
-      <circle cx="12" cy="12" r="10" />
-      <path d="M12 6v6l4 2" />
-    </svg>
-  );
-}
-
-export function CheckIcon({ size = 10, className }: IconProps) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 12 12" strokeWidth="2" className={className} aria-hidden="true" {...stroke}>
-      <path d="M2 6l3 3 5-5" />
-    </svg>
-  );
-}
-
 export function MailIcon({ size = 22, className }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" strokeWidth="1.5" className={className} aria-hidden="true" {...stroke}>
@@ -92,6 +75,33 @@ export function SparkleIcon({ size = 22, className }: IconProps) {
     <svg width={size} height={size} viewBox="0 0 24 24" strokeWidth="1.6" className={className} aria-hidden="true" {...stroke}>
       <path d="M11 4l1.7 4.8a2 2 0 0 0 1.2 1.2L18.7 11.7l-4.8 1.7a2 2 0 0 0-1.2 1.2L11 19.4l-1.7-4.8a2 2 0 0 0-1.2-1.2L3.3 11.7l4.8-1.7a2 2 0 0 0 1.2-1.2z" />
       <path d="M19 3v3M17.5 4.5h3M19 18v3M17.5 19.5h3" />
+    </svg>
+  );
+}
+
+export function SeatIcon({ size = 22, className }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" strokeWidth="1.6" className={className} aria-hidden="true" {...stroke}>
+      <path d="M8.5 3.5h1.2c1 0 1.8.7 2 1.7L13 12h4.5a2 2 0 0 1 2 2v2.5H8.2a1.5 1.5 0 0 1-1.5-1.3L5.5 5.2a1.5 1.5 0 0 1 1.5-1.7z" />
+      <path d="M9 16.5v4M17.5 16.5v4" />
+    </svg>
+  );
+}
+
+export function ShieldIcon({ size = 22, className }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" strokeWidth="1.6" className={className} aria-hidden="true" {...stroke}>
+      <path d="M12 3l7 2.5v5.5c0 4.3-2.9 8-7 9.5-4.1-1.5-7-5.2-7-9.5V5.5z" />
+      <path d="M9 12l2.2 2.2L15.2 10" />
+    </svg>
+  );
+}
+
+export function ChatIcon({ size = 22, className }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" strokeWidth="1.6" className={className} aria-hidden="true" {...stroke}>
+      <path d="M20 12a8 8 0 0 1-11.6 7.1L4 20l1-4.1A8 8 0 1 1 20 12z" />
+      <path d="M9 11h6M9 14h4" />
     </svg>
   );
 }
