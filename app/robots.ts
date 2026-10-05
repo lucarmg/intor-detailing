@@ -1,14 +1,10 @@
 import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/site";
 
-// Maakt automatisch /sitemap.xml aan.
-export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: SITE.url,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-  ];
+// Maakt automatisch /robots.txt aan: zoekmachines mogen alles lezen.
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: { userAgent: "*", allow: "/" },
+    sitemap: `${SITE.url}/sitemap.xml`,
+  };
 }
