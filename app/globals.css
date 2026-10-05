@@ -554,16 +554,32 @@ svg {
   text-align: center;
 }
 
+.hero__heading {
+  margin: 0 0 clamp(20px, 3.5vw, 28px);
+  font-size: inherit;
+  font-weight: inherit;
+}
+
 .hero__title {
+  display: block;
   font-family: var(--serif);
   font-size: clamp(44px, 14.5vw, 116px);
   font-weight: 700;
   line-height: 0.98;
   letter-spacing: -0.015em;
   color: #fff;
-  margin-bottom: clamp(20px, 3.5vw, 30px);
 }
 
+/* Small line under the slogan: says what the business does and where. */
+.hero__tagline {
+  display: block;
+  margin-top: clamp(14px, 2.4vw, 22px);
+  color: var(--accent);
+  font-size: clamp(11px, 1.3vw, 13px);
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
 .hero__line {
   display: block;
 }

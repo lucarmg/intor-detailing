@@ -2,6 +2,8 @@
 // Pas hier iets aan en het verandert overal op de site.
 
 export const SITE = {
+  // Het adres van de website, zonder slash aan het eind.
+  url: "https://loekgoodcleaning.nl",
   name: "loekgoodcleaning",
   shortName: "loekgoodcleaning",
   slogan: "That Loeks Good!",
@@ -18,6 +20,15 @@ export const SITE = {
   tiktokHandle: "@loekgoodcleaning",
   tiktokUrl: "https://www.tiktok.com/@loekgoodcleaning",
 } as const;
+
+// Wat Google te zien krijgt als lijst van behandelingen.
+export const TREATMENTS = [
+  "Volledig interieur reinigen",
+  "Exterieur wassen",
+  "Kleien",
+  "Polijsten in 1, 2 of 3 stappen",
+  "Glascoating",
+] as const;
 
 /** Bouwt een WhatsApp-link met een vooraf ingevuld bericht. */
 export function waLink(message: string): string {
