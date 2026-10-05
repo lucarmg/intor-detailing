@@ -14,14 +14,6 @@ export default function Hero() {
       <div className="hero__grid" aria-hidden="true" />
 
       <div className="hero__content">
-        <p className="badge anim-1">
-          <span className="badge__dot" aria-hidden="true" />
-          <span>
-            Mobiele Detailing · {SITE.city}
-            <span className="badge__wide"> &amp; Omgeving</span>
-          </span>
-        </p>
-
         <h1 className="hero__title anim-2">
           <span>Jouw Interieur.</span>
           <span className="text-accent-shimmer">Showroom</span>
