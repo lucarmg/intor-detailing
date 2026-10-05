@@ -51,16 +51,6 @@ export function PinIcon({ size = 22, className }: IconProps) {
   );
 }
 
-export function CarIcon({ size = 22, className }: IconProps) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" strokeWidth="1.6" className={className} aria-hidden="true" {...stroke}>
-      <path d="M5 11l1.6-4.6A2 2 0 0 1 8.5 5h7a2 2 0 0 1 1.9 1.4L19 11" />
-      <path d="M3 16.5V13a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3.5a.5.5 0 0 1-.5.5h-17a.5.5 0 0 1-.5-.5z" />
-      <path d="M6 17v2M18 17v2M7 14h1.5M15.5 14H17" />
-    </svg>
-  );
-}
-
 export function DropIcon({ size = 22, className }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" strokeWidth="1.6" className={className} aria-hidden="true" {...stroke}>

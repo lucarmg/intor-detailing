@@ -47,8 +47,9 @@ export default function WhyUs() {
             </h2>
           </div>
           <p className="why__intro">
-            Bij {SITE.name} begrijpen wij dat uw auto meer is dan vervoer. Het is uw dagelijkse ruimte. Wij behandelen elke auto, van
-            binnen en van buiten, met de aandacht en precisie die hij verdient.
+            Bij {SITE.name} begrijpen wij dat uw auto meer is dan vervoer. Het
+            is uw dagelijkse ruimte. Wij behandelen elke auto, van binnen en
+            van buiten, met de aandacht en precisie die hij verdient.
           </p>
         </div>
 
@@ -65,10 +66,10 @@ export default function WhyUs() {
         </ul>
 
         <div className="cta-banner">
-          <p className="cta-banner__kicker">Klaar voor een auto die weer straalt?</p>
-          <h3 className="cta-banner__title">
-            Plan vandaag nog uw afspraak
-          </h3>
+          <p className="cta-banner__kicker">
+            Klaar voor een auto die weer straalt?
+          </p>
+          <h3 className="cta-banner__title">Plan vandaag nog uw afspraak</h3>
           <a
             href={WA_DEFAULT}
             target="_blank"
