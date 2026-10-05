@@ -1,134 +1,120 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { NAV_LINKS, SITE, WA_DEFAULT } from "@/lib/site";
+import { WhatsAppIcon } from "./Icons";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
+  // Solid background once the page has scrolled a little.
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  return (
-    <nav
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 100,
-        padding: "20px 24px",
-        transition: "all 0.3s ease",
-        background: scrolled ? "rgba(10,10,10,0.95)" : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid #1e1e1e" : "none",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: 1100,
-          margin: "0 auto",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
-        {/* Logo */}
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <div
-            style={{
-              width: 34,
-              height: 34,
-              borderRadius: "50%",
-              background: "linear-gradient(135deg, #c9a84c, #a07830)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontWeight: 900,
-              fontSize: 13,
-              color: "#000",
-              fontFamily: "var(--font-playfair)",
-            }}
-          >
-            I
-          </div>
-          <span
-            style={{
-              fontFamily: "var(--font-playfair)",
-              fontWeight: 700,
-              fontSize: 16,
-              letterSpacing: "0.15em",
-              color: "#fff",
-            }}
-          >
-            INTØR
-          </span>
-        </div>
+  // While the mobile menu is open: lock page scroll, close on Escape and
+  // close when the screen becomes wide enough for the desktop links.
+  useEffect(() => {
+    if (!open) return;
 
-        {/* Desktop links */}
-        <div
-          className="hidden md:flex"
-          style={{ gap: 32, alignItems: "center" }}
-        >
-          {[
-            ["#services", "Services"],
-            ["#waarom", "Waarom Wij"],
-            ["#contact", "Contact"],
-          ].map(([href, label]) => (
-            <a
-              key={href}
-              href={href}
-              style={{
-                color: "#777",
-                textDecoration: "none",
-                fontSize: 13,
-                letterSpacing: "0.05em",
-                transition: "color 0.2s",
-              }}
-              onMouseEnter={(e) =>
-                ((e.target as HTMLElement).style.color = "#c9a84c")
-              }
-              onMouseLeave={(e) =>
-                ((e.target as HTMLElement).style.color = "#777")
-              }
-            >
-              {label}
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    const desktop = window.matchMedia("(min-width: 768px)");
+    const onResize = () => {
+      if (desktop.matches) setOpen(false);
+    };
+
+    // The menu covers the whole screen, so stop the page scrolling behind it.
+    const previousOverflow = document.documentElement.style.overflow;
+    document.documentElement.style.overflow = "hidden";
+
+    window.addEventListener("keydown", onKey);
+    desktop.addEventListener("change", onResize);
+    return () => {
+      document.documentElement.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKey);
+      desktop.removeEventListener("change", onResize);
+    };
+  }, [open]);
+
+  const classes = ["nav", scrolled || open ? "is-solid" : "", open ? "is-open" : ""]
+    .filter(Boolean)
+    .join(" ");
+
+  return (
+    <header className={classes}>
+      <nav className="nav__inner" aria-label="Hoofdmenu">
+        <a href="#top" className="brand" onClick={() => setOpen(false)}>
+          <span className="brand__mark" aria-hidden="true">
+            I
+          </span>
+          <span className="brand__name">{SITE.shortName}</span>
+        </a>
+
+        <div className="nav__links">
+          {NAV_LINKS.map((link) => (
+            <a key={link.href} href={link.href} className="nav__link">
+              {link.label}
             </a>
           ))}
         </div>
 
-        {/* CTA button */}
+        <div className="nav__actions">
+          <a
+            href={WA_DEFAULT}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn--outline"
+          >
+            <span className="nav__cta-long">Afspraak Maken</span>
+            <span className="nav__cta-short">Afspraak</span>
+          </a>
+
+          <button
+            type="button"
+            className="nav__toggle"
+            aria-expanded={open}
+            aria-controls="mobiel-menu"
+            aria-label={open ? "Menu sluiten" : "Menu openen"}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+      </nav>
+
+      <div id="mobiel-menu" className="nav__menu">
+        {NAV_LINKS.map((link) => (
+          <a
+            key={link.href}
+            href={link.href}
+            className="nav__menu-link"
+            onClick={() => setOpen(false)}
+          >
+            {link.label}
+          </a>
+        ))}
         <a
-          href="https://wa.me/31644840102?text=Hallo%20INTOR%2C%20ik%20wil%20graag%20een%20afspraak%20maken!"
+          href={WA_DEFAULT}
           target="_blank"
           rel="noopener noreferrer"
-          style={{
-            padding: "10px 22px",
-            borderRadius: 999,
-            border: "1px solid #c9a84c",
-            color: "#c9a84c",
-            fontSize: 13,
-            fontWeight: 600,
-            textDecoration: "none",
-            transition: "all 0.3s",
-            letterSpacing: "0.02em",
-          }}
-          onMouseEnter={(e) => {
-            const el = e.currentTarget;
-            el.style.background = "#c9a84c";
-            el.style.color = "#000";
-          }}
-          onMouseLeave={(e) => {
-            const el = e.currentTarget;
-            el.style.background = "transparent";
-            el.style.color = "#c9a84c";
-          }}
+          className="btn btn--gold"
+          onClick={() => setOpen(false)}
         >
-          Afspraak Maken
+          <WhatsAppIcon />
+          Direct Afspraak Maken
         </a>
+        <p className="nav__menu-foot">
+          Mobiele detailing in Eindhoven en omgeving
+        </p>
       </div>
-    </nav>
+    </header>
   );
 }
