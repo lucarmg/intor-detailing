@@ -1086,6 +1086,7 @@ svg {
 .ccard--whatsapp { --tone: var(--whatsapp); --tone-rgb: 37, 211, 102; --tone-bg: #111a12; }
 .ccard--email { --tone: var(--accent); --tone-rgb: var(--accent-rgb); --tone-bg: #11140e; }
 .ccard--instagram { --tone: #e1306c; --tone-rgb: 225, 48, 108; --tone-bg: #1a1115; }
+.ccard--tiktok { --tone: #5fd3e0; --tone-rgb: 95, 211, 224; --tone-bg: #0f1719; }
 
 .ccard__icon {
   display: grid;
@@ -1194,23 +1195,30 @@ svg {
 
 @media (min-width: 820px) {
   .contact__grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
   .ccard {
-    flex-direction: column;
-    gap: 0;
-    padding: 32px 22px;
-    text-align: center;
+    gap: 18px;
+    padding: 24px;
   }
   .ccard__icon {
-    width: 52px;
-    height: 52px;
-    margin-bottom: 20px;
+    width: 56px;
+    height: 56px;
   }
-  .ccard__label { margin-bottom: 8px; }
-  .ccard__sub { margin-top: 6px; }
+  .ccard__value {
+    font-size: 16px;
+  }
+  .ccard__sub {
+    font-size: 13px;
+  }
   .location__pill { border-radius: 999px; }
+}
+
+@media (min-width: 940px) {
+  .ccard__value {
+    font-size: 17px;
+  }
 }
 
 /* 9. Footer --------------------------------------------------------------- */

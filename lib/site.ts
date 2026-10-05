@@ -15,6 +15,8 @@ export const SITE = {
   email: "loekgoodcleaning@gmail.com",
   instagramHandle: "@loekgoodcleaning",
   instagramUrl: "https://www.instagram.com/loekgoodcleaning/",
+  tiktokHandle: "@loekgoodcleaning",
+  tiktokUrl: "https://www.tiktok.com/@loekgoodcleaning",
 } as const;
 
 /** Bouwt een WhatsApp-link met een vooraf ingevuld bericht. */

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { FaTiktok } from "react-icons/fa6";
 import { SITE, WA_DEFAULT } from "@/lib/site";
 import { InstagramIcon, MailIcon, PinIcon, WhatsAppIcon } from "./Icons";
 
@@ -45,6 +46,15 @@ export default function Contact() {
             value={SITE.instagramHandle}
             sub="Bekijk ons werk"
           />
+          <ContactCard
+            variant="tiktok"
+            href={SITE.tiktokUrl}
+            external
+            icon={<FaTiktok size={22} aria-hidden="true" />}
+            label="TikTok"
+            value={SITE.tiktokHandle}
+            sub="Bekijk onze video's"
+          />
         </div>
 
         <div className="location">
@@ -76,7 +86,7 @@ function ContactCard({
   value,
   sub,
 }: {
-  variant: "whatsapp" | "email" | "instagram";
+  variant: "whatsapp" | "email" | "instagram" | "tiktok";
   href: string;
   external?: boolean;
   icon: ReactNode;
