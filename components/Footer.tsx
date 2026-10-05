@@ -2,6 +2,12 @@ import Image from "next/image";
 import { NAV_LINKS, SITE } from "@/lib/site";
 import WhatsAppFab from "./WhatsAppFab";
 
+// Wie de website heeft gemaakt. Staat rechtsonder in de footer.
+const MADE_BY = {
+  name: "RMGdesign",
+  url: "https://www.rmgdesign.nl",
+};
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -38,9 +44,17 @@ export default function Footer() {
               Instagram
             </a>
           </nav>
+        </div>
 
+        <div className="footer__bottom">
           <p className="footer__copy">
             © {new Date().getFullYear()} {SITE.name}
+          </p>
+          <p className="footer__credit">
+            Ontwerp &amp; realisatie door{" "}
+            <a href={MADE_BY.url} target="_blank" rel="noopener">
+              {MADE_BY.name}
+            </a>
           </p>
         </div>
       </div>

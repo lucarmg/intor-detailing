@@ -1373,9 +1373,32 @@ svg {
   color: var(--accent);
 }
 
-.footer__copy {
+.footer__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.footer__copy,
+.footer__credit {
   color: var(--dim);
-  font-size: 11px;
+  font-size: 12px;
+}
+
+.footer__credit a {
+  color: var(--soft);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(var(--accent-rgb), 0.45);
+  text-underline-offset: 4px;
+  transition: color 0.2s;
+}
+
+.footer__credit a:hover {
+  color: var(--accent);
 }
 
 .wa-fab {
@@ -1432,8 +1455,11 @@ svg {
     align-items: center;
     justify-content: space-between;
   }
-  .footer__copy {
-    padding-right: 72px;
+    .footer__bottom {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 72px; /* keeps the credit clear of the WhatsApp button */
   }
   .wa-fab {
     right: 24px;
