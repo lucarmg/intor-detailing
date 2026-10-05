@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Playfair_Display, DM_Sans } from "next/font/google";
+import { SITE } from "@/lib/site";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -14,24 +15,23 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
+// Het favicon komt automatisch uit app/icon.png en app/apple-icon.png.
 export const metadata: Metadata = {
-  title: "loekgoodcleaning - Professionele Autodetailing",
-  description:
-    "Professionele interieur detailing aan huis. loekgoodcleaning reinigt uw auto-interieur met premium producten en apparatuur. Showroom-resultaat bij u op locatie.",
+  title: `${SITE.name} | Professionele Autodetailing ${SITE.city}`,
+  description: `Professionele interieur detailing aan huis in ${SITE.city} en omgeving. ${SITE.shortName} reinigt uw auto-interieur met premium producten. Basic €60 | Diepte €120 | Full €259. Wij komen naar u toe!`,
   keywords: [
-    "autodetailing Ommel",
+    `autodetailing ${SITE.city}`,
     "interieur reiniging auto",
     "auto schoonmaken aan huis",
     "mobiele autodetailing",
-    "interieur detailing Ommel",
+    `interieur detailing ${SITE.city}`,
     "auto interieur reinigen Brabant",
-    "loekgoodcleaning",
+    SITE.shortName,
     "professionele autodetailing",
   ],
   openGraph: {
-    title: "loekgoodcleaning - Professionele Autodetailing",
-    description:
-      "Showroom-resultaat bij u op locatie. Professionele interieur detailing in Ommel en omgeving.",
+    title: `${SITE.name} | ${SITE.city}`,
+    description: `Showroom-resultaat bij u op locatie. Professionele interieur detailing in ${SITE.city} en omgeving.`,
     type: "website",
     locale: "nl_NL",
   },

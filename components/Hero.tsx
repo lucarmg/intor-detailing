@@ -1,4 +1,4 @@
-import { WA_DEFAULT } from "@/lib/site";
+import { SITE, WA_DEFAULT } from "@/lib/site";
 import { WhatsAppIcon } from "./Icons";
 
 const stats = [
@@ -14,16 +14,23 @@ export default function Hero() {
       <div className="hero__grid" aria-hidden="true" />
 
       <div className="hero__content">
+        <p className="badge anim-1">
+          <span className="badge__dot" aria-hidden="true" />
+          <span>
+            Mobiele Detailing · {SITE.city}
+            <span className="badge__wide"> &amp; Omgeving</span>
+          </span>
+        </p>
 
         <h1 className="hero__title anim-2">
           <span>Jouw Interieur.</span>
-          <span className="text-gold-shimmer">Showroom</span>
+          <span className="text-accent-shimmer">Showroom</span>
           <span>Resultaat.</span>
         </h1>
 
         <p className="hero__sub anim-3">
-          Professionele interieur detailing aan huis in Ommel. Wij komen
-          naar u toe met premium apparatuur en producten.
+          Professionele interieur detailing aan huis in {SITE.city} en omgeving.
+          Wij komen naar u toe met premium apparatuur en producten.
         </p>
 
         <div className="hero__actions anim-4">
@@ -31,7 +38,7 @@ export default function Hero() {
             href={WA_DEFAULT}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn--gold btn--lg"
+            className="btn btn--accent btn--lg"
           >
             <WhatsAppIcon />
             Direct Afspraak Maken

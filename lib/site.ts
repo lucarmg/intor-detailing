@@ -4,12 +4,14 @@
 export const SITE = {
   name: "loekgoodcleaning Interior Detailing",
   shortName: "loekgoodcleaning",
+  city: "Ommel",
+  province: "Noord-Brabant",
   region: "Ommel & Omgeving",
   phoneDisplay: "+31 6 28181039",
   whatsappNumber: "31628181039",
   email: "loekgoodcleaning@gmail.com",
   instagramHandle: "@loekgoodcleaning",
-  instagramUrl: "https://www.instagram.com/loekgoodcleaning/?hl=af",
+  instagramUrl: "https://www.instagram.com/loekgoodcleaning/",
 } as const;
 
 /** Bouwt een WhatsApp-link met een vooraf ingevuld bericht. */
@@ -18,7 +20,7 @@ export function waLink(message: string): string {
 }
 
 export const WA_DEFAULT = waLink(
-  "Hallo loekgoodcleaning, ik wil graag een afspraak maken!"
+  `Hallo ${SITE.shortName}, ik wil graag een afspraak maken!`
 );
 
 export const NAV_LINKS = [

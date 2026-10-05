@@ -25,8 +25,8 @@ const reasons = [
   },
   {
     icon: <PinIcon />,
-    title: "Eindhoven & Omgeving",
-    desc: "Actief in Eindhoven en de regio Noord-Brabant. Neem contact op voor beschikbaarheid.",
+    title: "Ommel & Omgeving",
+    desc: "Actief in Ommel en de regio Noord-Brabant. Neem contact op voor beschikbaarheid.",
   },
 ];
 
@@ -47,7 +47,7 @@ export default function WhyUs() {
             </h2>
           </div>
           <p className="why__intro">
-            Bij Loekgoodcleaning Interior Detailing begrijpen wij dat uw auto meer is dan
+            Bij Loekgoodcleaning begrijpen wij dat uw auto meer is dan
             vervoer. Het is uw dagelijkse ruimte. Wij behandelen elk interieur
             met de aandacht en precisie die het verdient.
           </p>

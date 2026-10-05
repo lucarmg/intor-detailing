@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { WA_DEFAULT, waLink } from "@/lib/site";
+import { SITE, WA_DEFAULT, waLink } from "@/lib/site";
 import { CheckIcon, ClockIcon, WhatsAppIcon } from "./Icons";
 
 // Prijzen, tijden en inhoud van de pakketten. Pas ze hier aan.
@@ -136,12 +136,12 @@ export default function Services() {
   return (
     <section id="services" className="section">
       <div className="container">
-        <hr className="gold-line section-rule" />
+        <hr className="accent-line section-rule" />
 
         <div className="section-head">
           <p className="eyebrow">Onze Diensten</p>
           <h2 className="h2">
-            Kies Uw <span className="text-gold-gradient">Pakket</span>
+            Kies Uw <span className="text-accent-gradient">Pakket</span>
           </h2>
           <p className="lead">
             Van snelle opfrisbeurt tot complete detailing. Wij komen naar u toe.
@@ -172,7 +172,7 @@ export default function Services() {
               {s.badge && <p className="pk-badge">{s.badge}</p>}
 
               <h3
-                className={`pk-name${s.highlight ? " text-gold-gradient" : ""}`}
+                className={`pk-name${s.highlight ? " text-accent-gradient" : ""}`}
               >
                 {s.name}
               </h3>
@@ -204,7 +204,7 @@ export default function Services() {
 
               <a
                 href={waLink(
-                  `Hallo Loekgoodcleaning, ik wil het ${s.name} pakket (€${s.price}) boeken.`
+                  `Hallo ${SITE.shortName}, ik wil het ${s.name} pakket (€${s.price}) boeken.`
                 )}
                 target="_blank"
                 rel="noopener noreferrer"

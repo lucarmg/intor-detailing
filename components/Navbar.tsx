@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { NAV_LINKS, SITE, WA_DEFAULT } from "@/lib/site";
 import { WhatsAppIcon } from "./Icons";
@@ -49,10 +50,20 @@ export default function Navbar() {
   return (
     <header className={classes}>
       <nav className="nav__inner" aria-label="Hoofdmenu">
-        <a href="#top" className="brand" onClick={() => setOpen(false)}>
-          <span className="brand__mark" aria-hidden="true">
-            I
-          </span>
+        <a
+          href="#top"
+          className="brand"
+          aria-label={`${SITE.shortName}, naar boven`}
+          onClick={() => setOpen(false)}
+        >
+          <Image
+            src="/logo.png"
+            alt=""
+            width={44}
+            height={44}
+            priority
+            className="brand__logo"
+          />
           <span className="brand__name">{SITE.shortName}</span>
         </a>
 
@@ -105,14 +116,14 @@ export default function Navbar() {
           href={WA_DEFAULT}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn btn--gold"
+          className="btn btn--accent"
           onClick={() => setOpen(false)}
         >
           <WhatsAppIcon />
           Direct Afspraak Maken
         </a>
         <p className="nav__menu-foot">
-          Mobiele detailing in Eindhoven en omgeving
+          Mobiele detailing in {SITE.city} en omgeving
         </p>
       </div>
     </header>

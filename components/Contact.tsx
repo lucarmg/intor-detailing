@@ -6,12 +6,12 @@ export default function Contact() {
   return (
     <section id="contact" className="section">
       <div className="container">
-        <hr className="gold-line section-rule" />
+        <hr className="accent-line section-rule" />
 
         <div className="section-head">
           <p className="eyebrow">Contact</p>
           <h2 className="h2">
-            Neem <span className="text-gold-gradient">Contact</span> Op
+            Neem <span className="text-accent-gradient">Contact</span> Op
           </h2>
           <p className="lead">
             Vragen of klaar om te boeken? Wij reageren snel.
@@ -50,7 +50,10 @@ export default function Contact() {
         <div className="location">
           <p className="location__pill">
             <PinIcon size={14} />
-            Werkgebied: Ommel, Asten en omgeving, Noord-Brabant
+            <span>
+              Werkgebied: {SITE.city} en omgeving,{" "}
+              <span className="nowrap">{SITE.province}</span>
+            </span>
           </p>
         </div>
       </div>
