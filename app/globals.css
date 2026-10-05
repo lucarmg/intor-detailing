@@ -663,109 +663,187 @@ svg {
 
 /* 6. Pakketten ------------------------------------------------------------ */
 
-/* Six treatments. One column on phones, two on tablets, three on desktop. */
+/* Four panels: interieur, exterieur, polijsten (three steps) and glascoating. */
 
 .pk-grid {
   display: grid;
-  gap: 12px;
+  gap: 14px;
 }
 
 .pk-card {
+  position: relative;
   display: flex;
   flex-direction: column;
-  padding: 20px 18px 18px;
+  padding: 24px 22px;
   border: 1px solid var(--line);
-  border-radius: 20px;
+  border-radius: 22px;
   background: var(--surface);
-  transition:
-    transform 0.3s var(--ease),
-    box-shadow 0.3s,
-    border-color 0.3s;
+  overflow: hidden;
 }
 
-.pk-head {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 14px;
+.pk-card--coat {
+  background: linear-gradient(160deg, var(--surface-accent) 0%, var(--surface) 100%);
+  border-color: rgba(var(--accent-rgb), 0.32);
+}
+
+/* Large faint icon in the corner of a panel */
+.pk-ghost {
+  position: absolute;
+  right: -18px;
+  bottom: -22px;
+  color: var(--accent);
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+.pk-ghost svg {
+  stroke-width: 1;
 }
 
 .pk-icon {
   display: grid;
   place-items: center;
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 20px;
   border: 1px solid rgba(var(--accent-rgb), 0.22);
-  border-radius: 14px;
+  border-radius: 15px;
   background: var(--surface-accent);
   color: var(--accent);
   flex-shrink: 0;
 }
 
-.pk-title {
-  min-width: 0;
-}
-
 .pk-kind {
-  display: flex;
-  align-items: center;
-  gap: 10px;
   color: var(--dim);
   font-size: 10px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  margin-bottom: 3px;
-}
-
-/* Polijsten: three small bars show which of the three steps this is. */
-.pk-steps {
-  display: inline-flex;
-  gap: 4px;
-}
-
-.pk-steps i {
-  width: 16px;
-  height: 4px;
-  border-radius: 2px;
-  background: var(--line-2);
-}
-
-.pk-steps i.is-on {
-  background: var(--accent);
+  margin-bottom: 6px;
 }
 
 .pk-name {
   font-family: var(--serif);
-  font-size: 22px;
+  font-size: clamp(26px, 3vw, 32px);
   font-weight: 700;
-  line-height: 1.15;
+  line-height: 1.12;
   color: #fff;
 }
 
 .pk-desc {
+  position: relative;
   flex: 1;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 14.5px;
   line-height: 1.65;
-  margin-bottom: 18px;
+  max-width: 46ch;
+  margin: 10px 0 22px;
 }
 
-.pk-cta {
-  display: flex;
+.pk-ask {
+  position: relative;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
+  align-self: flex-start;
   gap: 8px;
-  min-height: 48px;
-  padding: 11px 16px;
-  border: 1px solid rgba(var(--accent-rgb), 0.35);
-  border-radius: 12px;
+  padding: 6px 0;
   color: var(--accent);
   font-size: 14px;
   font-weight: 600;
-  transition:
-    background-color 0.3s,
-    border-color 0.3s,
-    color 0.3s;
+  white-space: nowrap;
+}
+
+.pk-ask span {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.2s;
+}
+
+/* The polijsten panel */
+
+.pk-polish-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 26px;
+}
+
+.pk-polish-head .pk-icon {
+  margin-bottom: 0;
+}
+
+.pk-polish-sub {
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin-top: 6px;
+}
+
+.pk-steps {
+  display: grid;
+  flex: 1;
+  align-content: start;
+  margin: 0 0 22px;
+  padding: 0;
+  list-style: none;
+}
+
+/* Phones: the steps run down the page, joined by a vertical line. */
+.pk-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  column-gap: 14px;
+  padding-bottom: 22px;
+}
+
+.pk-step:last-child {
+  padding-bottom: 0;
+}
+
+.pk-step::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: 34px;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(var(--accent), rgba(var(--accent-rgb), 0.15));
+}
+
+.pk-step:last-child::before {
+  display: none;
+}
+
+.pk-node {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(var(--accent-rgb), 0.5);
+  border-radius: 50%;
+  background: var(--surface-accent);
+  color: var(--accent);
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.pk-step-name {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 34px;
+  color: #fff;
+}
+
+.pk-step-desc {
+  grid-column: 2;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 2px 0 0;
 }
 
 .pk-note {
@@ -788,41 +866,64 @@ svg {
 }
 
 @media (hover: hover) {
-  .pk-cta:hover {
-    border-color: var(--accent);
-    background: var(--accent);
-    color: #000;
-  }
-  .pk-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(var(--accent-rgb), 0.28);
-    box-shadow: 0 8px 40px rgba(var(--accent-rgb), 0.07);
+  .pk-ask:hover span {
+    text-decoration-color: rgba(var(--accent-rgb), 0.6);
   }
 }
 
-@media (min-width: 640px) {
+/* Tablets: two columns, and the steps run left to right. */
+@media (min-width: 720px) {
   .pk-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 18px;
   }
   .pk-card {
-    padding: 26px 24px 24px;
+    padding: 32px 30px;
   }
-  .pk-head {
-    margin-bottom: 16px;
+  .pk-card--polish,
+  .pk-card--coat {
+    grid-column: 1 / -1;
+  }
+  .pk-steps {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .pk-step {
+    display: block;
+    padding-bottom: 0;
+  }
+  .pk-step::before {
+    left: 34px;
+    right: -28px;
+    top: 17px;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent), rgba(var(--accent-rgb), 0.15));
+  }
+  .pk-step-name {
+    line-height: 1.2;
+    margin-top: 16px;
+  }
+  .pk-step-desc {
+    margin: 6px 0 0;
   }
 }
 
-@media (min-width: 980px) {
+/* Desktop: polijsten wide, glascoating beside it. */
+@media (min-width: 1000px) {
   .pk-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
   }
-  .pk-card {
-    padding: 30px 28px 28px;
+  .pk-card--half {
+    grid-column: span 6;
   }
-  .pk-name {
-    font-size: 24px;
+  .pk-card--polish {
+    grid-column: span 8;
+  }
+  .pk-card--coat {
+    grid-column: span 4;
   }
 }
 
