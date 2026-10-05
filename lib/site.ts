@@ -3,7 +3,7 @@
 
 export const SITE = {
   // Het adres van de website, zonder slash aan het eind.
-  url: "https://loekgoodcleaning.nl",
+  url: "https://www.loekgoodcleaning.nl",
   name: "loekgoodcleaning",
   shortName: "loekgoodcleaning",
   slogan: "That Loeks Good!",
