@@ -1394,11 +1394,12 @@ svg {
   text-decoration: underline;
   text-decoration-color: rgba(var(--accent-rgb), 0.45);
   text-underline-offset: 4px;
-  transition: color 0.2s;
+  transition: color 0.2s, text-decoration-color 0.2s;
 }
 
 .footer__credit a:hover {
-  color: var(--accent);
+  color: #ff5fa2;
+  text-decoration-color: #ff5fa2;
 }
 
 .wa-fab {

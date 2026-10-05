@@ -2,7 +2,7 @@
 // Pas hier iets aan en het verandert overal op de site.
 
 export const SITE = {
-  name: "loekgoodcleaning Interior Detailing",
+  name: "Loekgoodcleaning Interior Detailing",
   shortName: "loekgoodcleaning",
   city: "Ommel",
   province: "Noord-Brabant",
