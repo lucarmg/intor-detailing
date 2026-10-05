@@ -38,7 +38,7 @@ export default function WhyUs() {
 
         <div className="why__head">
           <div>
-            <p className="eyebrow">Waarom INTOR</p>
+            <p className="eyebrow">Waarom Loekgoodcleaning</p>
             <h2 className="h2 why__title">
               Meer dan schoonmaken.{" "}
               <span className="text-gold-gradient">
@@ -47,7 +47,7 @@ export default function WhyUs() {
             </h2>
           </div>
           <p className="why__intro">
-            Bij INTOR Interior Detailing begrijpen wij dat uw auto meer is dan
+            Bij Loekgoodcleaning Interior Detailing begrijpen wij dat uw auto meer is dan
             vervoer. Het is uw dagelijkse ruimte. Wij behandelen elk interieur
             met de aandacht en precisie die het verdient.
           </p>

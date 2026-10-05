@@ -22,7 +22,7 @@ export default function Hero() {
         </h1>
 
         <p className="hero__sub anim-3">
-          Professionele interieur detailing aan huis in Eindhoven. Wij komen
+          Professionele interieur detailing aan huis in Ommel. Wij komen
           naar u toe met premium apparatuur en producten.
         </p>
 

@@ -204,7 +204,7 @@ export default function Services() {
 
               <a
                 href={waLink(
-                  `Hallo INTOR, ik wil het ${s.name} pakket (€${s.price}) boeken.`
+                  `Hallo Loekgoodcleaning, ik wil het ${s.name} pakket (€${s.price}) boeken.`
                 )}
                 target="_blank"
                 rel="noopener noreferrer"

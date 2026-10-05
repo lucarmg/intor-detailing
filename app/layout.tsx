@@ -15,23 +15,23 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "INTOR Interior Detailing | Professionele Autodetailing Eindhoven",
+  title: "loekgoodcleaning - Professionele Autodetailing",
   description:
-    "Professionele interieur detailing aan huis in Eindhoven. INTOR reinigt uw auto-interieur met premium producten. Basic €60 | Diepte €120 | Full €259. Wij komen naar u toe!",
+    "Professionele interieur detailing aan huis. loekgoodcleaning reinigt uw auto-interieur met premium producten en apparatuur. Showroom-resultaat bij u op locatie.",
   keywords: [
-    "autodetailing Eindhoven",
+    "autodetailing Ommel",
     "interieur reiniging auto",
     "auto schoonmaken aan huis",
     "mobiele autodetailing",
-    "interieur detailing Eindhoven",
+    "interieur detailing Ommel",
     "auto interieur reinigen Brabant",
-    "INTOR detailing",
+    "loekgoodcleaning",
     "professionele autodetailing",
   ],
   openGraph: {
-    title: "INTOR Interior Detailing | Eindhoven",
+    title: "loekgoodcleaning - Professionele Autodetailing",
     description:
-      "Showroom-resultaat bij u op locatie. Professionele interieur detailing in Eindhoven en omgeving.",
+      "Showroom-resultaat bij u op locatie. Professionele interieur detailing in Ommel en omgeving.",
     type: "website",
     locale: "nl_NL",
   },
