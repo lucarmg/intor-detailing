@@ -50,7 +50,7 @@ export default function Contact() {
         <div className="location">
           <p className="location__pill">
             <PinIcon size={14} />
-            Werkgebied: Eindhoven en omgeving, Noord-Brabant
+            Werkgebied: Ommel, Asten en omgeving, Noord-Brabant
           </p>
         </div>
       </div>
