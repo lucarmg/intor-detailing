@@ -1,4 +1,4 @@
-import { SITE, WA_DEFAULT } from "@/lib/site";
+import { NEARBY, SITE, WA_DEFAULT } from "@/lib/site";
 import {
   ChatIcon,
   DropIcon,
@@ -11,7 +11,7 @@ const reasons = [
   {
     icon: <PinIcon />,
     title: `Eigen Locatie in ${SITE.city}`,
-    desc: `U brengt uw auto naar ${SITE.address}. Daar hebben wij alle apparatuur en producten bij de hand.`,
+    desc: `U brengt uw auto naar ${SITE.address}. Goed te bereiken vanuit ${NEARBY.slice(0, -1).join(", ")} en ${NEARBY[NEARBY.length - 1]}.`,
   },
   {
     icon: <DropIcon />,
@@ -47,9 +47,10 @@ export default function WhyUs() {
             </h2>
           </div>
           <p className="why__intro">
-            Bij {SITE.name} begrijpen wij dat uw auto meer is dan vervoer. Het
-            is uw dagelijkse ruimte. Wij behandelen elke auto, van binnen en
-            van buiten, met de aandacht en precisie die hij verdient.
+            {SITE.name} is een autopoetsbedrijf in {SITE.city}. Wij begrijpen
+            dat uw auto meer is dan vervoer: het is uw dagelijkse ruimte.
+            Daarom behandelen wij elke auto, van binnen en van buiten, met de
+            aandacht en precisie die hij verdient.
           </p>
         </div>
 

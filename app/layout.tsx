@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Playfair_Display, DM_Sans } from "next/font/google";
-import { SITE, TREATMENTS } from "@/lib/site";
+import { NEARBY, SITE, TREATMENTS } from "@/lib/site";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -19,13 +19,13 @@ const dmSans = DM_Sans({
 // SEO: wat Google en WhatsApp/Instagram-previews van de site te zien krijgen.
 // ---------------------------------------------------------------------------
 
-const TITLE = `Auto Detailing & Polijsten in ${SITE.city} | ${SITE.name}`;
-const DESCRIPTION = `${SITE.slogan} Auto detailing in ${SITE.city}: interieur reinigen, exterieur wassen, kleien, polijsten en glascoating. ${SITE.street}. Prijs op aanvraag via WhatsApp.`;
+const TITLE = `${SITE.name} | Autopoetsbedrijf & Polijsten in ${SITE.city}`;
+const DESCRIPTION = `${SITE.slogan} Autopoetsbedrijf in ${SITE.city} voor interieur reinigen, wassen, kleien, polijsten en glascoating. ${SITE.street}. Prijs op aanvraag via WhatsApp.`;
 const SHARE_IMAGE = {
   url: "/og.png",
   width: 1200,
   height: 630,
-  alt: `${SITE.name}: auto detailing in ${SITE.city}`,
+  alt: `${SITE.name}: autopoetsbedrijf en auto detailing in ${SITE.city}`,
 };
 
 // Het favicon komt automatisch uit app/favicon.ico, app/icon.png en
@@ -38,6 +38,8 @@ export const metadata: Metadata = {
   },
   description: DESCRIPTION,
   keywords: [
+    `autopoetsbedrijf ${SITE.city}`,
+    `auto poetsen ${SITE.city}`,
     `auto detailing ${SITE.city}`,
     `auto polijsten ${SITE.city}`,
     `auto interieur reinigen ${SITE.city}`,
@@ -99,7 +101,7 @@ const businessData = {
     addressRegion: SITE.province,
     addressCountry: "NL",
   },
-  areaServed: [SITE.city, "Ommel"],
+  areaServed: [SITE.city, ...NEARBY],
   sameAs: [SITE.instagramUrl, SITE.tiktokUrl],
   hasOfferCatalog: {
     "@type": "OfferCatalog",

@@ -21,6 +21,17 @@ export const SITE = {
   tiktokUrl: "https://www.tiktok.com/@loekgoodcleaning",
 } as const;
 
+// Plaatsen in de buurt. Staan in de tekst en in de gegevens voor Google.
+export const NEARBY = [
+  "Ommel",
+  "Heusden",
+  "Someren",
+  "Deurne",
+  "Liessel",
+  "Meijel",
+  "Helmond",
+] as const;
+
 // Wat Google te zien krijgt als lijst van behandelingen.
 export const TREATMENTS = [
   "Volledig interieur reinigen",
