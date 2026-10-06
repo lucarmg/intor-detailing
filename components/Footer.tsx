@@ -51,7 +51,7 @@ export default function Footer() {
             © {new Date().getFullYear()} {SITE.name}
           </p>
           <p className="footer__credit">
-            Ontwerp &amp; realisatie door{" "}
+            Designed &mp; built by{" "}
             <a href={MADE_BY.url} target="_blank" rel="noopener">
               {MADE_BY.name}
             </a>
