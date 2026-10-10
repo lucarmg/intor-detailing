@@ -105,3 +105,11 @@ export function NoteIcon({ size = 22, className }: IconProps) {
     </svg>
   );
 }
+
+export function ArrowIcon({ size = 20, className }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" strokeWidth="1.5" className={className} aria-hidden="true" {...stroke}>
+      <path d="M7 17 17 7M9 7h8v8" />
+    </svg>
+  );
+}

@@ -47,7 +47,7 @@ function AskPrice({ treatment }: { treatment: string }) {
       href={waLink(`Hallo ${SITE.shortName}, wat is de prijs voor ${treatment}?`)}
       target="_blank"
       rel="noopener noreferrer"
-      className="pk-ask"
+      className="ask"
       aria-label={`Prijs opvragen voor ${treatment}`}
     >
       <WhatsAppIcon size={15} />
@@ -56,99 +56,101 @@ function AskPrice({ treatment }: { treatment: string }) {
   );
 }
 
-function Card({
+function Kind({ icon, children }: { icon: ReactNode; children: ReactNode }) {
+  return (
+    <p className="svc-kind">
+      {icon}
+      {children}
+    </p>
+  );
+}
+
+/** Interieur en exterieur: naam groot aan de ene kant, tekst aan de andere. */
+function Row({
   item,
   icon,
-  ghost,
-  className = "",
+  flip = false,
 }: {
   item: { name: string; kind: string; desc: string };
   icon: ReactNode;
-  ghost: ReactNode;
-  className?: string;
+  flip?: boolean;
 }) {
   return (
-    <li className={`pk-card ${className}`}>
-      <span className="pk-ghost" aria-hidden="true">
-        {ghost}
-      </span>
-      <span className="pk-icon">{icon}</span>
-      <p className="pk-kind">{item.kind}</p>
-      <h3 className="pk-name">{item.name}</h3>
-      <p className="pk-desc">{item.desc}</p>
-      <AskPrice treatment={item.name} />
-    </li>
+    <article className={`svc-row rv${flip ? " svc-row--flip" : ""}`}>
+      <div className="svc-row__head">
+        <Kind icon={icon}>{item.kind}</Kind>
+        <h3 className="svc-name">{item.name}</h3>
+      </div>
+      <div className="svc-row__body">
+        <p className="svc-desc">{item.desc}</p>
+        <AskPrice treatment={item.name} />
+      </div>
+    </article>
   );
 }
 
 export default function Services() {
   return (
-    <section id="services" className="section">
-      <div className="container">
-        <hr className="accent-line section-rule" />
-
-        <div className="section-head">
-          <p className="eyebrow">Onze Diensten</p>
-          <h2 className="h2">
-            Kies Uw <span className="text-accent-gradient">Pakket</span>
+    <section id="services" className="svc" aria-labelledby="services-title">
+      <div className="wrap">
+        <div className="shead">
+          <p className="marker">Onze Diensten</p>
+          <h2 id="services-title" className="display shead__title rv">
+            Kies Uw <span className="hl">Pakket</span>
           </h2>
-          <p className="lead">
+          <p className="shead__lead rv">
             Van een volledig schoon interieur tot polijsten en glascoating.
             Alles op onze locatie in {SITE.city}.
           </p>
         </div>
 
-        <ul className="pk-grid">
-          <Card
-            item={interieur}
-            icon={<SeatIcon size={24} />}
-            ghost={<SeatIcon size={190} />}
-            className="pk-card--half"
-          />
-          <Card
-            item={exterieur}
-            icon={<DropIcon size={24} />}
-            ghost={<DropIcon size={190} />}
-            className="pk-card--half"
-          />
+        <Row item={interieur} icon={<SeatIcon size={18} />} />
+        <Row item={exterieur} icon={<DropIcon size={18} />} flip />
+      </div>
 
-          {/* De drie polijst-stappen staan samen in één blok. */}
-          <li className="pk-card pk-card--polish">
-            <div className="pk-polish-head">
-              <span className="pk-icon">
-                <SparkleIcon size={24} />
-              </span>
-              <div>
-                <p className="pk-kind">{polijsten.kind}</p>
-                <h3 className="pk-name">{polijsten.name}</h3>
-                <p className="pk-polish-sub">{polijsten.intro}</p>
-              </div>
+      {/* Polijsten: een eigen band, met de drie stappen als oplopende schaal. */}
+      <article className="polish">
+        <div className="polish__grid" aria-hidden="true" />
+        <div className="wrap">
+          <div className="polish__head rv">
+            <div>
+              <Kind icon={<SparkleIcon size={18} />}>{polijsten.kind}</Kind>
+              <h3 className="svc-name">{polijsten.name}</h3>
             </div>
+            <p className="polish__intro">{polijsten.intro}</p>
+          </div>
 
-            <ol className="pk-steps">
-              {polijsten.steps.map((desc, i) => (
-                <li key={i} className="pk-step">
-                  <span className="pk-node" aria-hidden="true">
-                    {i + 1}
-                  </span>
-                  <h4 className="pk-step-name">Stap {i + 1}</h4>
-                  <p className="pk-step-desc">{desc}</p>
-                </li>
-              ))}
-            </ol>
+          <ol className="gauge" data-gauge>
+            {polijsten.steps.map((desc, i) => (
+              <li key={i} className="gauge__step" data-step>
+                <span className="gauge__bars" data-level={i + 1} aria-hidden="true">
+                  <i />
+                  <i />
+                  <i />
+                </span>
+                <h4 className="gauge__name">Stap {i + 1}</h4>
+                <p className="gauge__desc">{desc}</p>
+              </li>
+            ))}
+          </ol>
 
-            <AskPrice treatment={polijsten.name} />
-          </li>
+          <AskPrice treatment={polijsten.name} />
+        </div>
+      </article>
 
-          <Card
-            item={glascoating}
-            icon={<ShieldIcon size={24} />}
-            ghost={<ShieldIcon size={190} />}
-            className="pk-card--coat"
-          />
-        </ul>
+      <div className="wrap">
+        <article className="coat rv">
+          <div className="coat__head">
+            <Kind icon={<ShieldIcon size={18} />}>{glascoating.kind}</Kind>
+            <h3 className="svc-name">{glascoating.name}</h3>
+          </div>
+          <div className="coat__body">
+            <p className="svc-desc">{glascoating.desc}</p>
+            <AskPrice treatment={glascoating.name} />
+          </div>
+        </article>
 
-        <p className="pk-note">
+        <p className="svc-note">
           Prijzen bespreken wij graag met u via WhatsApp.{" "}
           <a href={WA_DEFAULT} target="_blank" rel="noopener noreferrer">
             Stuur een bericht
