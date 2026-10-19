@@ -6,8 +6,8 @@
    loekgoodcleaning
    1. Tokens          5. Hero              9. Contact
    2. Base            6. Onder de hero    10. Footer
-   3. Shared pieces   7. Diensten         11. Motion preferences
-   4. Navigatie       8. Waarom wij
+   3. Shared pieces   7. Diensten         11. Privacy & cookies
+   4. Navigatie       8. Waarom wij       12. Motion preferences
    ========================================================================== */
 
 /* 1. Tokens --------------------------------------------------------------- */
@@ -1671,7 +1671,166 @@ svg {
   }
 }
 
-/* 11. Motion preferences ------------------------------------------------- */
+/* Privacylink in de footer van de homepage */
+
+.footer__sep {
+  margin: 0 10px;
+}
+
+.footer__copy a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: rgba(var(--accent-rgb), 0.35);
+  text-underline-offset: 4px;
+  transition: color 0.2s;
+}
+
+.footer__copy a:hover {
+  color: var(--accent);
+}
+
+/* 11. Privacy & cookies --------------------------------------------------- */
+
+.legal-bar {
+  padding: 16px var(--gutter);
+  border-bottom: 1px solid var(--line);
+}
+
+.legal-bar__inner,
+.legal-foot__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.legal-bar__back {
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  padding: 10px 0;
+  transition: color 0.2s;
+}
+
+.legal-bar__back:hover {
+  color: var(--accent);
+}
+
+.legal {
+  padding: clamp(56px, 10vw, 112px) var(--gutter) var(--section-gap);
+}
+
+.legal__body {
+  max-width: 68ch;
+  margin: 0 auto;
+}
+
+.legal__title {
+  font-size: clamp(44px, 8vw, 80px);
+}
+
+.legal__updated {
+  margin: 18px 0 clamp(36px, 6vw, 56px);
+  color: var(--dim);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+.legal__lead {
+  color: var(--text);
+  font-size: clamp(18px, 2vw, 20px);
+  line-height: 1.65;
+}
+
+.legal h2 {
+  margin: clamp(40px, 6vw, 56px) 0 14px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line-2);
+  font-family: var(--serif);
+  font-size: clamp(24px, 3vw, 30px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--heading);
+  scroll-margin-top: 24px;
+}
+
+.legal p,
+.legal li {
+  color: var(--soft);
+  font-size: 16.5px;
+  line-height: 1.75;
+}
+
+.legal p + p,
+.legal ul + p {
+  margin-top: 14px;
+}
+
+.legal ul {
+  display: grid;
+  gap: 8px;
+  margin: 14px 0 0;
+}
+
+.legal li {
+  position: relative;
+  padding-left: 22px;
+}
+
+.legal li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.8em;
+  width: 10px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.legal strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.legal a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: rgba(var(--accent-rgb), 0.4);
+  text-underline-offset: 4px;
+  overflow-wrap: anywhere;
+  transition: text-decoration-color 0.2s;
+}
+
+.legal a:hover {
+  text-decoration-color: currentColor;
+}
+
+.legal-foot {
+  padding: 28px var(--gutter) calc(28px + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--line);
+}
+
+.legal-foot__inner {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  color: var(--dim);
+  font-size: 13px;
+}
+
+.legal-foot__inner a {
+  color: var(--muted);
+  padding: 6px 0;
+  transition: color 0.2s;
+}
+
+.legal-foot__inner a:hover {
+  color: var(--accent);
+}
+
+/* 12. Motion preferences ------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
   html {

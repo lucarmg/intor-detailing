@@ -49,6 +49,8 @@ export default function Footer() {
         <div className="footer__bottom">
           <p className="footer__copy">
             © {new Date().getFullYear()} {SITE.name}
+            <span className="footer__sep" aria-hidden="true">·</span>
+            <a href="/privacy">Privacy &amp; cookies</a>
           </p>
           <p className="footer__credit">
             Designed & built by{" "}
