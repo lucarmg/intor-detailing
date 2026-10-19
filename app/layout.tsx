@@ -101,7 +101,21 @@ const businessData = {
     addressRegion: SITE.province,
     addressCountry: "NL",
   },
-  areaServed: [SITE.city, ...NEARBY],
+  hasMap: SITE.mapsUrl,
+  // Plaatsen als echte locaties, zodat Google ze aan de regio kan koppelen.
+  areaServed: [SITE.city, ...NEARBY].map((name) => ({
+    "@type": "City",
+    name,
+    containedInPlace: { "@type": "AdministrativeArea", name: SITE.province },
+  })),
+  // Werken op afspraak: geen vaste openingstijden, wel een vast contactpunt.
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "afspraken",
+    telephone: `+${SITE.whatsappNumber}`,
+    email: SITE.email,
+    availableLanguage: ["nl"],
+  },
   sameAs: [SITE.instagramUrl, SITE.tiktokUrl],
   hasOfferCatalog: {
     "@type": "OfferCatalog",

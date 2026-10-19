@@ -6,7 +6,7 @@
    loekgoodcleaning
    1. Tokens          5. Hero              9. Contact
    2. Base            6. Onder de hero    10. Footer
-   3. Shared pieces   7. Diensten         11. Privacy & cookies
+   3. Shared pieces   7. Diensten         11. Privacy, cookies & 404
    4. Navigatie       8. Waarom wij       12. Motion preferences
    ========================================================================== */
 
@@ -1828,6 +1828,74 @@ svg {
 
 .legal-foot__inner a:hover {
   color: var(--accent);
+}
+
+/* 404 */
+
+.nf {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  min-height: calc(100vh - 77px);
+  min-height: calc(100svh - 77px);
+  padding: clamp(48px, 10vw, 96px) var(--gutter);
+  overflow: hidden;
+  text-align: center;
+}
+
+.nf__inner {
+  max-width: 640px;
+}
+
+/* Groot cijfer als omtrek, zoals een lijn op de lak. */
+.nf__code {
+  font-family: var(--serif);
+  font-size: clamp(120px, 30vw, 260px);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(var(--accent-rgb), 0.55);
+  /* Playfair heeft standaard cijfers die onder de regel zakken. */
+  font-variant-numeric: lining-nums;
+  user-select: none;
+}
+
+.nf__title {
+  margin-top: clamp(12px, 3vw, 24px);
+  font-family: var(--serif);
+  font-size: clamp(34px, 6vw, 60px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: var(--heading);
+  text-wrap: balance;
+}
+
+.nf__text {
+  max-width: 46ch;
+  margin: 18px auto 0;
+  color: var(--soft);
+  font-size: clamp(16px, 1.8vw, 18px);
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+.nf__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 360px;
+  margin: clamp(28px, 5vw, 40px) auto 0;
+}
+
+@media (min-width: 560px) {
+  .nf__actions {
+    flex-direction: row;
+    justify-content: center;
+    max-width: none;
+  }
 }
 
 /* 12. Motion preferences ------------------------------------------------- */
