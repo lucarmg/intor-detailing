@@ -25,7 +25,7 @@ export default function Footer() {
             />
             <span>
               <span className="footer__name">{SITE.name}</span>
-              <span className="footer__region">{SITE.address}</span>
+              <span className="footer__region">{SITE.fullAddress}</span>
             </span>
           </a>
 
@@ -35,6 +35,9 @@ export default function Footer() {
                 {link.label}
               </a>
             ))}
+            <a href="#vragen" className="footer__link">
+              Vragen
+            </a>
             <a
               href={SITE.instagramUrl}
               target="_blank"

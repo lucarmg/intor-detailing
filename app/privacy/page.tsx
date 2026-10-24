@@ -2,10 +2,30 @@ import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
 import { SITE, WA_DEFAULT } from "@/lib/site";
 
+const TITLE = "Privacy & cookies";
+const DESCRIPTION = `Hoe ${SITE.name} omgaat met uw gegevens en welke cookies de website gebruikt.`;
+
 export const metadata: Metadata = {
-  title: "Privacy & cookies",
-  description: `Hoe ${SITE.name} omgaat met uw gegevens en welke cookies de website gebruikt.`,
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: "/privacy" },
+  // Eigen deelgegevens, anders toont een gedeelde link de titel en het adres
+  // van de homepage.
+  openGraph: {
+    title: `${TITLE} | ${SITE.name}`,
+    description: DESCRIPTION,
+    url: "/privacy",
+    siteName: SITE.name,
+    type: "website",
+    locale: "nl_NL",
+    images: [{ url: "/og.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${TITLE} | ${SITE.name}`,
+    description: DESCRIPTION,
+    images: ["/og.png"],
+  },
 };
 
 export default function PrivacyPage() {
@@ -19,7 +39,7 @@ export default function PrivacyPage() {
 
       <h2 id="wie">Wie wij zijn</h2>
       <p>
-        {SITE.name} is een autopoetsdienst aan {SITE.address}. Vragen over uw
+        {SITE.name} is een autopoetsdienst aan {SITE.fullAddress}. Vragen over uw
         gegevens kunt u stellen via{" "}
         <a href={`mailto:${SITE.email}`}>{SITE.email}</a> of via{" "}
         <a href={WA_DEFAULT} target="_blank" rel="noopener noreferrer">

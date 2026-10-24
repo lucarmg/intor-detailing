@@ -1,7 +1,7 @@
 import { SITE } from "@/lib/site";
 import { ArrowIcon, PinIcon } from "./Icons";
 
-const EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(SITE.address)}&z=15&output=embed`;
+const EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(SITE.fullAddress)}&z=15&output=embed`;
 
 /**
  * Google Maps in de donkere stijl van de site. Google laat een iframe niet
@@ -13,7 +13,7 @@ export default function MapEmbed() {
       <iframe
         className="cmap__frame"
         src={EMBED_URL}
-        title={`Kaart: ${SITE.address}`}
+        title={`Kaart: ${SITE.fullAddress}`}
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
       />
@@ -25,7 +25,7 @@ export default function MapEmbed() {
         </span>
         <span className="cmap__text">
           <span className="crow__label">U vindt ons aan</span>
-          <span className="cmap__address">{SITE.address}</span>
+          <span className="cmap__address">{SITE.fullAddress}</span>
         </span>
         <a
           href={SITE.mapsUrl}

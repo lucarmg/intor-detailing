@@ -1267,6 +1267,49 @@ svg {
   }
 }
 
+/* Veelgestelde vragen: dezelfde haarlijnen en serif als "Waarom wij". */
+
+.faq {
+  padding: var(--section-gap) 0;
+  border-top: 1px solid var(--line);
+}
+
+.faq__list {
+  display: grid;
+}
+
+.faq__item {
+  display: grid;
+  row-gap: 12px;
+  align-content: start;
+  padding: 28px 0 36px;
+  border-top: 1px solid var(--line-2);
+}
+
+.faq__q {
+  font-family: var(--serif);
+  font-size: clamp(21px, 2.2vw, 25px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--heading);
+  text-wrap: balance;
+}
+
+.faq__a {
+  color: var(--muted);
+  font-size: 15.5px;
+  line-height: 1.7;
+  max-width: 52ch;
+  text-wrap: pretty;
+}
+
+@media (min-width: 720px) {
+  .faq__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(32px, 6vw, 72px);
+  }
+}
+
 /* 9. Contact -------------------------------------------------------------- */
 
 .contact {

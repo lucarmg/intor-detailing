@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Playfair_Display, DM_Sans } from "next/font/google";
-import { NEARBY, SITE, TREATMENTS } from "@/lib/site";
+import { NEARBY, PLACE_REGION, SITE, TREATMENTS } from "@/lib/site";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -82,49 +82,78 @@ export const viewport: Viewport = {
 
 // Bedrijfsgegevens in het formaat dat Google leest (schema.org). Hiermee kan
 // Google naam, adres, telefoon en behandelingen aan elkaar koppelen.
+const BUSINESS_ID = `${SITE.url}/#bedrijf`;
+
 const businessData = {
   "@context": "https://schema.org",
-  "@type": "AutomotiveBusiness",
-  "@id": `${SITE.url}/#bedrijf`,
-  name: SITE.name,
-  slogan: SITE.slogan,
-  description: DESCRIPTION,
-  url: SITE.url,
-  logo: `${SITE.url}/logo.png`,
-  image: `${SITE.url}${SHARE_IMAGE.url}`,
-  telephone: `+${SITE.whatsappNumber}`,
-  email: SITE.email,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: SITE.street,
-    addressLocality: SITE.city,
-    addressRegion: SITE.province,
-    addressCountry: "NL",
-  },
-  hasMap: SITE.mapsUrl,
-  // Plaatsen als echte locaties, zodat Google ze aan de regio kan koppelen.
-  areaServed: [SITE.city, ...NEARBY].map((name) => ({
-    "@type": "City",
-    name,
-    containedInPlace: { "@type": "AdministrativeArea", name: SITE.province },
-  })),
-  // Werken op afspraak: geen vaste openingstijden, wel een vast contactpunt.
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "afspraken",
-    telephone: `+${SITE.whatsappNumber}`,
-    email: SITE.email,
-    availableLanguage: ["nl"],
-  },
-  sameAs: [SITE.instagramUrl, SITE.tiktokUrl],
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Behandelingen",
-    itemListElement: TREATMENTS.map((name) => ({
-      "@type": "Offer",
-      itemOffered: { "@type": "Service", name },
-    })),
-  },
+  "@graph": [
+    {
+      "@type": "AutomotiveBusiness",
+      "@id": BUSINESS_ID,
+      name: SITE.name,
+      alternateName: SITE.alternateName,
+      slogan: SITE.slogan,
+      description: `${SITE.name} is een autopoetsbedrijf in ${SITE.city} (${SITE.province}) voor interieur reinigen, exterieur wassen, kleien, polijsten in één, twee of drie stappen en glascoating. Behandelingen gebeuren op de eigen locatie aan ${SITE.street}, alleen op afspraak. Prijs op aanvraag via WhatsApp.`,
+      url: SITE.url,
+      logo: `${SITE.url}/logo.png`,
+      image: `${SITE.url}${SHARE_IMAGE.url}`,
+      telephone: `+${SITE.whatsappNumber}`,
+      email: SITE.email,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: SITE.street,
+        postalCode: SITE.postalCode,
+        addressLocality: SITE.city,
+        addressRegion: SITE.province,
+        addressCountry: "NL",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: SITE.geo.latitude,
+        longitude: SITE.geo.longitude,
+      },
+      hasMap: SITE.mapsUrl,
+      // Plaatsen met hun gemeente en provincie, zodat er geen verwarring is
+      // met gelijknamige plaatsen elders.
+      areaServed: (["Asten", ...NEARBY] as const).map((name) => ({
+        "@type": "Place",
+        name,
+        containedInPlace: { "@type": "AdministrativeArea", name: PLACE_REGION[name] },
+      })),
+      // Alleen op afspraak: bewust geen openingHours, wel een vast contactpunt.
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "afspraken (alleen op afspraak)",
+        telephone: `+${SITE.whatsappNumber}`,
+        email: SITE.email,
+        availableLanguage: ["nl"],
+      },
+      sameAs: [SITE.instagramUrl, SITE.tiktokUrl],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Behandelingen",
+        itemListElement: TREATMENTS.map(({ name, description }) => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name,
+            description,
+            provider: { "@id": BUSINESS_ID },
+          },
+        })),
+      },
+    },
+    {
+      // Vertelt Google welke naam het bij de site in de zoekresultaten toont.
+      "@type": "WebSite",
+      "@id": `${SITE.url}/#website`,
+      url: SITE.url,
+      name: SITE.name,
+      alternateName: SITE.alternateName,
+      inLanguage: "nl-NL",
+      publisher: { "@id": BUSINESS_ID },
+    },
+  ],
 };
 
 export default function RootLayout({

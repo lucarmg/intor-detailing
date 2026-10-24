@@ -61,14 +61,14 @@ export default function Contact() {
             external
             icon={<PinIcon size={20} />}
             label="U vindt ons aan"
-            value={SITE.address}
-            sub="Route plannen"
+            value={SITE.fullAddress}
+            sub="Alleen op afspraak · Route plannen"
             subAccent
           />
         </ul>
       </div>
 
-      {/* Kaart: laadt Google Maps pas na een klik. */}
+      {/* Kaart: Google Maps laadt pas als de kaart bijna in beeld is. */}
       <div className="wrap">
         <MapEmbed />
       </div>
