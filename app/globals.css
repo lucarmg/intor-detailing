@@ -1300,38 +1300,154 @@ svg {
 }
 
 .faq__list {
-  display: grid;
+  max-width: 880px;
+  border-bottom: 1px solid var(--line-2);
 }
 
 .faq__item {
-  display: grid;
-  row-gap: 12px;
-  align-content: start;
-  padding: 28px 0 36px;
+  position: relative;
   border-top: 1px solid var(--line-2);
+}
+
+/* Groene lijn die over de bovenrand loopt bij de open vraag. */
+.faq__item::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq__item.is-open::before {
+  transform: scaleX(1);
 }
 
 .faq__q {
   font-family: var(--serif);
-  font-size: clamp(21px, 2.2vw, 25px);
+  font-size: clamp(20px, 2.2vw, 25px);
   font-weight: 700;
   line-height: 1.25;
   color: var(--heading);
+}
+
+.faq__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  min-height: 44px;
+  padding: 26px 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
   text-wrap: balance;
+  cursor: pointer;
+  transition: color 0.25s;
+}
+
+.faq__toggle:hover,
+.faq__item.is-open .faq__toggle {
+  color: var(--accent-light);
+}
+
+/* Plus die een min wordt. */
+.faq__icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line-2);
+  border-radius: 50%;
+  transition:
+    border-color 0.3s,
+    background-color 0.3s;
+}
+
+.faq__icon::before,
+.faq__icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 1.5px;
+  margin: -0.75px 0 0 -6px;
+  border-radius: 1px;
+  background: var(--accent);
+  transition: transform 0.4s var(--ease);
+}
+
+.faq__icon::after {
+  transform: rotate(90deg);
+}
+
+.faq__toggle:hover .faq__icon {
+  border-color: rgba(var(--accent-rgb), 0.5);
+}
+
+.faq__item.is-open .faq__icon {
+  border-color: var(--accent);
+  background: rgba(var(--accent-rgb), 0.08);
+}
+
+.faq__item.is-open .faq__icon::after {
+  transform: rotate(0deg);
+}
+
+/* Hoogte animeren van 0 naar de echte hoogte, zonder vaste maat. */
+.faq__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition:
+    grid-template-rows 0.45s var(--ease),
+    visibility 0s 0.45s;
+}
+
+.faq__item.is-open .faq__panel {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition:
+    grid-template-rows 0.45s var(--ease),
+    visibility 0s;
+}
+
+.faq__panel-inner {
+  min-height: 0;
+  overflow: hidden;
 }
 
 .faq__a {
+  padding: 0 60px 30px 0;
   color: var(--muted);
   font-size: 15.5px;
   line-height: 1.7;
-  max-width: 52ch;
+  max-width: 64ch;
   text-wrap: pretty;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition:
+    opacity 0.3s,
+    transform 0.45s var(--ease);
 }
 
-@media (min-width: 720px) {
-  .faq__list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: clamp(32px, 6vw, 72px);
+.faq__item.is-open .faq__a {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.4s 0.08s,
+    transform 0.45s var(--ease);
+}
+
+@media (max-width: 479px) {
+  .faq__a {
+    padding-right: 0;
   }
 }
 

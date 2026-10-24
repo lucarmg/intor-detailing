@@ -1,4 +1,5 @@
 import { NEARBY, SITE, WA_DEFAULT } from "@/lib/site";
+import FaqAccordion from "./FaqAccordion";
 
 // Veelgestelde vragen. Staan op de pagina én in de gegevens voor Google
 // (app/page.tsx), dus altijd dezelfde tekst. Alleen dingen die kloppen:
@@ -44,14 +45,7 @@ export default function Faq() {
           </h2>
         </div>
 
-        <div className="faq__list">
-          {FAQS.map((item) => (
-            <div key={item.q} className="faq__item rv">
-              <h3 className="faq__q">{item.q}</h3>
-              <p className="faq__a">{item.a}</p>
-            </div>
-          ))}
-        </div>
+        <FaqAccordion items={FAQS} />
 
         <p className="svc-note">
           Staat uw vraag er niet bij?{" "}
