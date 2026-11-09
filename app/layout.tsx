@@ -19,8 +19,10 @@ const dmSans = DM_Sans({
 // SEO: wat Google en WhatsApp/Instagram-previews van de site te zien krijgen.
 // ---------------------------------------------------------------------------
 
-const TITLE = `${SITE.name} | Autopoetsbedrijf & Polijsten in ${SITE.city}`;
-const DESCRIPTION = `${SITE.slogan} Autopoetsbedrijf in ${SITE.city} voor interieur reinigen, wassen, kleien, polijsten en glascoating. ${SITE.street}. Prijs op aanvraag via WhatsApp.`;
+// Titel en omschrijving gebruiken de woorden waarop mensen echt zoeken
+// ("auto laten poetsen", "auto detailing", "interieur reinigen").
+const TITLE = `Auto laten poetsen & polijsten in ${SITE.city} | ${SITE.name}`;
+const DESCRIPTION = `Auto laten poetsen in ${SITE.city}? Auto detailing op afspraak: interieur reinigen, wassen, kleien, polijsten en glascoating. Vlakbij Helmond, Deurne en Someren.`;
 const SHARE_IMAGE = {
   url: "/og.png",
   width: 1200,
@@ -38,8 +40,10 @@ export const metadata: Metadata = {
   },
   description: DESCRIPTION,
   keywords: [
+    `auto laten poetsen ${SITE.city}`,
     `autopoetsbedrijf ${SITE.city}`,
     `auto poetsen ${SITE.city}`,
+    "auto laten poetsen Helmond",
     `auto detailing ${SITE.city}`,
     `auto polijsten ${SITE.city}`,
     `auto interieur reinigen ${SITE.city}`,

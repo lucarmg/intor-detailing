@@ -25,7 +25,7 @@ export const FAQS = [
     a: `Op onze eigen locatie aan ${SITE.fullAddress}. U brengt uw auto daar naartoe op het tijdstip dat wij samen afspreken. De locatie is goed te bereiken vanuit ${towns}.`,
   },
   {
-    q: "Wat kost een behandeling?",
+    q: "Wat kost het om mijn auto te laten poetsen?",
     a: "Er staat bewust geen vaste prijslijst op de site, want elke auto is anders. De prijs hangt af van de auto, de staat waarin hij is en de behandeling die u kiest. Stuur een WhatsApp met uw auto en wat u wilt laten doen, dan krijgt u een prijs op maat.",
   },
   {
